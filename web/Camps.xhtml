@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <body>
+        <ui:composition template="./layout.xhtml">
+            <ui:define name="top"></ui:define>
+            <ui:define name="left">
+                <h2>Select Camp</h2>
+                <div id="selection">
+
+                </div>
+            </ui:define>
+            <ui:define name="content">
+                <h2>Camp Management</h2>
+                <h:form>
+                    
+                    <h:selectOneRadio id="selectCamp" value="#{navigation.test}">
+                        <f:selectItems itemValue="#{camp.campID}" itemLabel="#{camp.campName}" var="camp"  value="#{navigation.listOfCamps}"></f:selectItems>    
+                        <f:ajax event="click" execute="selectCamp" render="campSelect"/>
+                    </h:selectOneRadio>
+                    <h2><h:outputText id="campSelect" value="#{navigation.test}"/></h2>
+                    
+                    
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
